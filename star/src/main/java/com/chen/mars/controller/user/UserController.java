@@ -49,6 +49,7 @@ public class UserController extends GenericController {
     @Autowired
     private DubbotestService dubbotestService;
 
+
     private final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @RequestMapping(value = "/register", method = {RequestMethod.POST})
