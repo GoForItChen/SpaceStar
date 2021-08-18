@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>space-service</artifactId>
+        <groupId>com.chen</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>space-service-server</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+
+<!--        <dependency>-->
+<!--            <groupId>com.chen</groupId>-->
+<!--            <artifactId>space-service-provider</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.github.pagehelper</groupId>-->
+<!--            <artifactId>pagehelper-spring-boot-starter</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework</groupId>-->
+<!--            <artifactId>spring-core</artifactId>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-autoconfigure</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba</groupId>-->
+<!--            <artifactId>druid-spring-boot-starter</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.github.ulisesbocchio</groupId>-->
+<!--            <artifactId>jasypt-spring-boot</artifactId>-->
+<!--            <version>3.0.3</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash;Spring End&ndash;&gt;-->
+
+
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.boot</groupId>-->
+<!--            <artifactId>dubbo-spring-boot-starter</artifactId>-->
+<!--            <version>0.2.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash;Dubbo End&ndash;&gt;-->
+<!--        &lt;!&ndash;ZooKeeper Start&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.zookeeper</groupId>-->
+<!--            <artifactId>zookeeper</artifactId>-->
+<!--            <version>3.4.10</version>-->
+<!--            <type>pom</type>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.101tec</groupId>-->
+<!--            <artifactId>zkclient</artifactId>-->
+<!--            <version>0.10</version>-->
+<!--        </dependency>-->
+
+    </dependencies>
+
+</project>
