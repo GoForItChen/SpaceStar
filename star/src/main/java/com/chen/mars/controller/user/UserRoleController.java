@@ -40,12 +40,4 @@ public class UserRoleController extends GenericController {
         return getBaseResponse(Status.SUCCESS, userRoleService.saveRole(userRole));
     }
 
-//    public static void main(String[] args) {
-//        System.out.println(System.getenv("USER"));
-//
-//        Map<String, String> getenv = System.getenv();
-//
-//        getenv.forEach((s, s2) -> System.out.println(s + "   " + s2));
-//    }
-
 }
