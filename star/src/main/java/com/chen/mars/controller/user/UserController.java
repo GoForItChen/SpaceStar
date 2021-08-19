@@ -87,8 +87,6 @@ public class UserController extends GenericController {
     public BaseResponse test() {
         String test = dubbotestService.test();
         return getBaseResponse(Status.SUCCESS, test);
-
-
     }
 
 }
