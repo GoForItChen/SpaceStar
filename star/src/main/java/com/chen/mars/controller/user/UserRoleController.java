@@ -37,6 +37,7 @@ public class UserRoleController extends GenericController {
 
     @PostMapping
     public BaseResponse save(@RequestBody UserRole userRole) {
+        System.out.println("cherry pick test");
         return getBaseResponse(Status.SUCCESS, userRoleService.saveRole(userRole));
     }
 
