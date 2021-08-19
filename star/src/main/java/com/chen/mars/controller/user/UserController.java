@@ -79,6 +79,7 @@ public class UserController extends GenericController {
     @GetMapping
     public BaseResponse list(Page<User> page, User user) {
         return getBaseResponse(Status.SUCCESS, userService.page(page, user));
+
     }
 
     @RequestMapping(value = "/test", method = {RequestMethod.GET})
