@@ -74,6 +74,7 @@ public class UserController extends GenericController {
         String username = redisCacheService.getValue(id.toString()).toString();
         System.out.println("username: " + username);
         return getBaseResponse(Status.SUCCESS, username);
+
     }
 
     @GetMapping
