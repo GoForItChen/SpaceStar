@@ -79,8 +79,8 @@ public class UserController extends GenericController {
 
     @GetMapping
     public BaseResponse list(Page<User> page, User user) {
+        System.out.println("git brabch merge test");
         return getBaseResponse(Status.SUCCESS, userService.page(page, user));
-
     }
 
     @RequestMapping(value = "/test", method = {RequestMethod.GET})
