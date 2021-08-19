@@ -85,6 +85,7 @@ public class UserController extends GenericController {
 
     @RequestMapping(value = "/test", method = {RequestMethod.GET})
     public BaseResponse test() {
+        System.out.println("git stash test");
         String test = dubbotestService.test();
         return getBaseResponse(Status.SUCCESS, test);
     }
