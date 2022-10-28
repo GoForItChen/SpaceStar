@@ -1,0 +1,133 @@
+﻿database: mysql
+server:
+  port: 8082
+
+spring:
+  application:
+    name: StarApplication
+  datasource:
+    #配置数据库
+    type: com.alibaba.druid.pool.DruidDataSource
+#    master:
+#      url: jdbc:mysql://rm-bp1t12n9s6964jm1jgo.mysql.rds.aliyuncs.com:3306/stardb?stringtype=unspecified&allowPublicKeyRetrieval=true
+#      username: ENC(UxhIGxGr4lN8aHm5EpwJQJGSVkByHHu9STdDgRcYDopCbxc8aqL0sKrmu1RqHLwM)
+#      password: ENC(p1BVHQCFdGSh+hWCFpbgWcRxV19AYTE/XPJJHb48tmLK4o19Abxm2jJfOk7Bfp4Q)
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#    slave1:
+#      url: jdbc:mysql://rm-bp1t12n9s6964jm1jgo.mysql.rds.aliyuncs.com:3306/civilization?stringtype=unspecified&allowPublicKeyRetrieval=true
+#      username: ENC(UxhIGxGr4lN8aHm5EpwJQJGSVkByHHu9STdDgRcYDopCbxc8aqL0sKrmu1RqHLwM)
+#      password: ENC(p1BVHQCFdGSh+hWCFpbgWcRxV19AYTE/XPJJHb48tmLK4o19Abxm2jJfOk7Bfp4Q)
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+    master:
+     url: jdbc:mysql://112.124.25.23:3306/space?stringtype=unspecified&allowPublicKeyRetrieval=true
+     username: ENC(mzIFnOert0VQcgbTD6Fcl3niB1+ztLqa27HEMfD2LfEoHQ8q5ms9im6mASHAuTQx)
+     password: ENC(lLW+Z88vR5mIiH71hwwq/EG+iqN73jUAhxaL0Tiy3tO52gr+h2WxfCBpVCI4nDUH)
+     driver-class-name: com.mysql.cj.jdbc.Driver
+    slave1:
+     url: jdbc:mysql://112.124.25.23:3306/space?stringtype=unspecified&allowPublicKeyRetrieval=true
+     username: ENC(mzIFnOert0VQcgbTD6Fcl3niB1+ztLqa27HEMfD2LfEoHQ8q5ms9im6mASHAuTQx)
+     password: ENC(lLW+Z88vR5mIiH71hwwq/EG+iqN73jUAhxaL0Tiy3tO52gr+h2WxfCBpVCI4nDUH)
+     driver-class-name: com.mysql.cj.jdbc.Driver
+#    slave2:
+#      url: jdbc:mysql://112.124.25.23:3306/space?stringtype=unspecified&allowPublicKeyRetrieval=true
+#      username: ENC(mzIFnOert0VQcgbTD6Fcl3niB1+ztLqa27HEMfD2LfEoHQ8q5ms9im6mASHAuTQx)
+#      password: ENC(lLW+Z88vR5mIiH71hwwq/EG+iqN73jUAhxaL0Tiy3tO52gr+h2WxfCBpVCI4nDUH)
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    mongodb:
+      uri: mongodb://root:admin_mima@112.124.25.23:27017/starmongo
+  cloud:
+    gateway:
+      routes:
+      - id: url-proxy-1
+        uri: https://blog.csdn.net
+        predicates:
+          -Path=/user/**
+
+  jpa:
+    hibernate: ddl-auto=update
+    show-sql: true
+
+#  mongodb:
+#    database: admin
+#    password: admin_mima
+#    port: 27017
+#    host: 112.124.25.23
+#    name: root
+  redis:
+    #    cluster:
+    #      nodes: 112.124.25.23:6379
+    #      max-redirects: 3
+    host: 112.124.25.23
+    port: 6379
+    password: qwe123123
+    #    timeout: @redis.timeout@
+    conn-type: single # cluster/single
+#    lettuce:
+#      pool:
+#        # 连接池中的最小空闲连接
+#        min-idle: 2
+#        # 连接池中的最大空闲连接
+#        max-idle: 500
+#        # 连接池最大连接数（使用负值表示没有限制）
+#        max-active: 2000
+#        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+#        max-wait: 10000
+
+
+#  datasource:
+#    #配置数据库
+#    type: com.zaxxer.hikari.HikariDataSource
+#    url: jdbc:mysql://rm-bp1t12n9s6964jm1jgo.mysql.rds.aliyuncs.com:3306/stardb?stringtype=unspecified&allowPublicKeyRetrieval=true
+#    username: ENC(UxhIGxGr4lN8aHm5EpwJQJGSVkByHHu9STdDgRcYDopCbxc8aqL0sKrmu1RqHLwM)
+#    password: ENC(p1BVHQCFdGSh+hWCFpbgWcRxV19AYTE/XPJJHb48tmLK4o19Abxm2jJfOk7Bfp4Q)
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#mybatis:
+#  config-location: classpath:/mybatis-config.xml, classpath:mybatis/mybatis-config.xml
+#  mapper-locations: classpath:mappers/*.xml,classpath:mybatis/mapper/*.xml
+#  configuration:
+#    cache-enabled: true
+
+logging:
+  level:
+    com.chen.star.controller.user: debug
+  file:
+    name: /home/log/my.log
+
+jasypt:
+  encryptor:
+    password: star1413
+
+star:
+  jwt:
+    # 至少需要32个字符哦
+    key: ENC(pxrQ6wT6CE1im1zhBFG9JTmx8tLgP+Hohw0NCbnkU9rPntSROEQyV78n7ntwm5LskaIo/+SVumZtDmS43f3SEbs3j8WqRWzPliDIpyIUPCU=)
+    # 10分钟 毫秒（millisecond）
+    ttl: 600000
+    # 7天 毫秒（millisecond）
+    remember: 604800000
+  security:
+    ignoring:
+      get:
+      post:
+        - "/auth/login"
+        - "/auth/logout"
+      delete:
+      put:
+      head:
+      patch:
+      options:
+      trace:
+      pattern:
+        - "/auth/*"
+        - "/auth/**"
+        - "/test/*"
+        - "/v3/api-docs"
+        - "/swagger-resources/**"
+        - "/swagger-ui/**"
+        - "/swagger-ui/*"
+
+test: "123"
+
+

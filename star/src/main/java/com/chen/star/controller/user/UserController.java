@@ -1,0 +1,98 @@
+package com.chen.star.controller.user;
+
+import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.chen.star.base.GenericController;
+import com.chen.star.base.dto.BaseResponse;
+import com.chen.star.base.exception.Status;
+import com.chen.star.entity.User;
+import com.chen.star.service.MongodbService;
+import com.chen.star.service.RedisCacheService;
+import com.chen.star.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RequestMapping("/user")
+@RestController
+@RequiredArgsConstructor
+@Api("用户控制器")
+@Slf4j
+public class UserController extends GenericController {
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
+
+//    @Autowired
+//    private StringRedisTemplate stringRedisTemplate;
+
+    @Autowired
+    private RedisCacheService redisCacheService;
+
+//    @Autowired
+//    private MongoDBHelper mongoDBHelper;
+
+//    @Autowired
+//    private DubbotestService dubbotestService;
+
+    @Autowired
+    private MongodbService mongodbService;
+
+
+    private final Logger logger = LoggerFactory.getLogger(UserController.class);
+
+    @RequestMapping(value = "/register", method = {RequestMethod.POST})
+    @ApiOperation(value="用户注册", response = BaseResponse.class)
+    public BaseResponse register(@RequestBody User user) {
+        Boolean isSuccess = userService.register(user);
+        return getBaseResponse(Status.SUCCESS, isSuccess);
+    }
+
+    @RequestMapping(value = "/{id}", method = {RequestMethod.GET})
+    @PreAuthorize("hasAuthority('menu:finance')")
+    public BaseResponse<User> getUser(@PathVariable(value = "id") Integer id) {
+        logger.info("查看用户信息info");
+        logger.debug("查看用户信息debug");
+        logger.error("查看用户信息error");
+//        Set<String> set = mongoTemplate.getCollectionNames();
+        User user = userService.getById(id);
+//        String jsonStr = JSONObject.toJSONString(user);
+////        mongoDBHelper.insert(Document.parse(jsonStr), "user");
+////        mongoTemplate.getDb().getCollection("user").insertOne(Document.parse(jsonStr));
+//        Boolean result = redisCacheService.setValue(id.toString(), user.getUsername());
+//        String username = redisCacheService.getValue(id.toString()).toString();
+//        System.out.println("username: " + username);
+        return getBaseResponse(Status.SUCCESS, user);
+    }
+
+    @GetMapping
+    public BaseResponse list(Page<User> page, User user) {
+        System.out.println("git brabch merge test");
+        return getBaseResponse(Status.SUCCESS, userService.page(page, user));
+    }
+
+    @RequestMapping(value = "/test", method = {RequestMethod.POST})
+    public BaseResponse test() {
+//        User params = new User();
+//        params.setId(2L);
+//        params.setUsername("adsa");
+//        params.setPhone("12345678932");
+//        User user = mongodbService.save(params);
+//        List<User> user = mongodbService.findByPhone("15168273482");
+//        String test = dubbotestService.test();
+        return getBaseResponse(Status.SUCCESS, "ok");
+    }
+
+}

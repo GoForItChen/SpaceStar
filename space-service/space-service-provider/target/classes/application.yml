@@ -1,0 +1,39 @@
+﻿database: mysql
+
+
+spring:
+  application:
+    name: StarRPCServer
+  dubbo:
+    application:
+      name: StarRPCServer
+    registry:
+      address: zookeeper://127.0.0.1:2181
+      protocol:
+        name: dubbo
+        port: 20880
+    monitor:
+      protocol: registry
+  datasource:
+    #配置数据库
+    type: com.alibaba.druid.pool.DruidDataSource
+    center:
+      url: jdbc:mysql://rm-bp1t12n9s6964jm1jgo.mysql.rds.aliyuncs.com:3306/civilization?stringtype=unspecified&allowPublicKeyRetrieval=true
+      username: ENC(UxhIGxGr4lN8aHm5EpwJQJGSVkByHHu9STdDgRcYDopCbxc8aqL0sKrmu1RqHLwM)
+      password: ENC(p1BVHQCFdGSh+hWCFpbgWcRxV19AYTE/XPJJHb48tmLK4o19Abxm2jJfOk7Bfp4Q)
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      show-sql: true
+
+jasypt:
+  encryptor:
+    password: star1413
+
+server:
+  port: 8081
+
+
+
+
