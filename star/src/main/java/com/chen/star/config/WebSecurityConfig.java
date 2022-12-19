@@ -101,7 +101,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // impl.setForcePrincipalAsString();
         // impl.setHideUserNotFoundExceptions(false);
         // impl.setMessageSource();
-        // TODO: 2021/6/6 changjin wei(魏昌进) 需要缓存啊
         // impl.setUserCache();
         // impl.setPreAuthenticationChecks();
         // impl.setPostAuthenticationChecks();
